@@ -1,0 +1,1023 @@
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    /* VARIABLES GENERICAS
+        Cálculos */
+            --ancho-separacion-foto_perfil-nombre-index: 10px;
+        /* Fin Cálculos
+
+        ----------------------
+
+        Animaciones
+            Like posts */
+                --escala-aumentar-like: 1.3;
+                --escala-reducir-like: 0.8;
+
+                --animacion-like: aumentar-like 0.7s ease 0s infinite alternate;
+            /* Fin Like posts 
+            -------------------------
+
+            Enviar post */
+                --trasladar-mensaje-horizontal: calc(var(--padding-zona-interaccion-usuario) + var(--border-tamanho-zona-interaccion-usuario) + var(--alto-zona-interaccion-usuario));
+                --trasladar-mensaje-vertical: 0px;
+
+                --animacion-enviar: enviar-publicacion 2s ease 0s infinite alternate;
+            /* Fin Enviar post
+
+            -------------------------
+
+            Comentar post */
+                --animacion-comentar: saltitos-comentario 0.3s ease 0s infinite alternate;
+            /* Fin Comentar post
+
+            -----------------------
+
+            Replicar post */
+                --animacion-replicar: rotar-replicar 2s ease 0s infinite;
+            /* Fin Replicar post
+
+            -------------------------
+
+            Guardar post */
+                --animacion-guardar: agregar-favoritos 0.6s ease 0s infinite alternate;
+            /* Fin Guardar post
+        /* Fin Animaciones
+
+        --------------------------------
+
+        Colores */
+            --gris-hover: 0, 0, 0, .05;
+            --gris-publicaciones-hover: 0, 0, 0, .3;
+
+            --relleno: #808080;
+
+            --negro: #000;
+            --blanco: #fff;
+            --rojo: #ff0000;
+            --verde: #008000;
+            --azul: #0000FF;
+            --naranja: #ff8000;
+            --amarillo: #FFFF00;
+            --morado: #800080;
+            --rosa: #ff0080;
+            --azul-claro: #00a9ff;
+            --naranja-colorante: #FF5500;
+
+            --color-fondo-separador_hover: var(--rojo);
+        /* Fin Colores
+
+        ------------------------
+
+        Foto perfil */
+            --borde-radius-foto-perfil: 100%;
+            --alto-imagen-perfil: 30px;
+            --ancho-imagen-perfil: 30px;
+        /* Fin foto perfil */
+    /* FIN VARIABLES GENERICAS 
+
+    ---------------------------------
+
+    VARIABLES DE LA BARRA LATERAL
+        .barra-lateral */
+            --border-barra-tamanho: 1px;
+            --border-barra-color: solid var(--negro);
+
+            --padding-barra-tamanho: 5px;
+            --padding-barra-tamanho-derecha_izquierda-pc_tablet: 10px;
+            --padding-barra-tamanho-arriba_abajo-pc_tablet: 10px;
+
+            --ancho-barra-desplegada: 260px;
+            --ancho-barra-no_deplegada: 60px;
+        /* Fin .barra-lateral 
+
+        ---------------------------
+
+        .opcion-menu */
+            --border-radius-hover:10px;
+
+            --height-opcion_menu: 50px;
+            --padding-opcion_menu: 1px;
+
+            --margin_top_bottom-opcion_menu: 10px;
+            --margin_left_right-opcion_menu: 0;
+        /* Fin .opcion-menu
+
+        ----------------------
+
+        .texto */
+            --margin-left_texto: 10px;
+        /* Fin .texto 
+
+        -----------------------
+
+        .logo */
+            --ancho-logo: 70%;
+        /* Fin .logo 
+
+        -----------------------
+
+        Iconos svg */
+            --alto-imagenes-svg-barra: 24px;
+            --ancho-imagenes-svg-barra: 24px;
+        /* Fin Iconos svg */
+    /* FIN VARIABLES DE LA BARRA LATERAL
+
+    ---------------------------------------
+
+    VARIBLES DEL INDEX */
+        --alto-zona-interaccion-usuario: 43px;
+        --padding-zona-interaccion-usuario: 10px;
+
+        --border-tamanho-zona-interaccion-usuario: 1px;
+        --border-color-zona-interaccion-usuario: solid var(--relleno);
+
+        --alto-headers-foto_perfil-index: 55px;
+    /* FIN VARIABLES INDEX
+
+    -----------------------------------------
+
+    VARIABLES DE MENSAJES
+        Variables genericas */
+            --padding-arriba_abajo-main_mensajes:10px;
+            --padding-derecha_izquierda-main_mensajes: 10px;
+
+            --color-mensaje-otro_usuario-mensajes: var(--naranja);
+            --color-fondo_mensaje-otro_usuario-mensajes: linear-gradient(to right, var(--azul), var(--morado));
+
+            --color-mensaje-propio_usuario-mensajes: var(--blanco);
+            --color-fondo_mensaje-propio_usuario-mensaje: var(--verde);
+        /* Fin Variables Genericas
+
+        ------------------------------------
+
+        #main */
+            --padding-top_bottom-main_mensajes: 0px;
+            --padding-lados-main_mensajes: 0;
+
+            --minimo-ancho-main_mensajes: 195px;
+
+            --izquierda_separador: 0px;
+        /* Fin #main
+
+        --------------------------
+
+        #main input */
+            --borde-buscador-mensajes: 1px;
+            --color-buscador-mensajes: solid var(--negro);
+
+            --borde-radius-buscador: 10px;
+
+            --padding-arriba_abajo-buscador_mensajes: 10px;
+            --padding-derecha_izquierda-buscador_mensajes: 10px;
+        /* Fin #main input
+
+        ----------------------
+
+        header */
+            --borde-tamanho-header_mensajes: 1px;
+            --borde-color-header_mensajes: solid var(--negro);
+
+            --alto-buscar-contacto_mensajes: 65px;
+        /* Fin header
+
+        ---------------------------------
+
+        .contacto */
+            --borde-tamanho-abajo-contacto: 1px;
+            --borde-color-abajo-contacto: solid var(--negro);
+            
+            --padding-tamanho-arriba_abajo-contacto: 10px;
+            --padding-tamanho-derecha_izquierda-contacto: 0;
+
+            --ancho-imagen-perfil-contacto_lista_contactos: 40px;
+        /* Fin .contacto 
+
+        -----------------------
+
+        #separador */
+            --borde-tamanho-separador: 0px;
+            --border-color-separador: solid var(--negro);
+
+            --ancho-separador: 1px;
+
+            --color-fondo-separador-mensajes: var(--negro);
+        /* Fin #separador 
+
+        ------------------------------
+
+        footer */
+            --borde-tamanho-footer_mensajes: 1px;
+            --borde-color-footer_mensajes: solid var(--negro);
+        /* Fin footer
+
+        -----------------------------------
+
+        #header */
+            --alto-cabecera-mensajes: 50px;
+
+            --padding-cabecera-mensaje: 10px;
+
+            --border-tamanho-cabecera-mensaje: 1px;
+            --border-color-cabecera-mensaje: solid var(--negro);
+        /* Fin #header
+
+        ----------------------------------------
+
+        #zona-escribir */
+            --border-tamanho-zona-escribir-mensaje: 1px;
+            --border-color-zona-escribir-mensaje: solid var(--negro);
+
+            --height-zona-escribir-mensaje: calc(30px + var(--padding-zona-escribir-mensaje)*2);
+
+            --padding-zona-escribir-mensaje: 10px;
+        /* Fin #zona-escribir
+
+        -----------------------------
+
+        #chat input */
+            --borde-tamanho-escribir-mensaje: 1px;
+            --borde-color-escribir-mensaje: solid var(--negro);
+
+            --border-radius-escribir-mensaje: 10px;
+
+            --padding-escribir-mensaje: 5px;
+
+            --width-escribir-mensaje: 100%;
+
+            --height-escribir-mensaje: calc(var(--height-zona-escribir-mensaje) - var(--borde-tamanho-escribir-mensaje)*2 - var(--padding-escribir-mensaje)*2);
+        /* Fin #chat input
+
+        -------------------------------------
+
+        .mensaje */
+            --padding-contenido_chat-mensaje: 10px;
+
+            --border-radius-mensaje: 10px;
+            --borde-tamanho-mensaje: 1px;
+            --borde-color-mensaje: solid var(--negro);
+
+            --padding-mensaje: 10px;
+
+            --maximo-ancho-mensaje: 70%;
+        /* Fin .mensaje
+
+        ----------------------------------------
+
+        Iconos svg */
+            --alto-imagenes-svg-mensajes: var(--height-zona-escribir-mensaje);
+            --ancho-imagenes-svg-mensajes: var(--alto-imagenes-svg-mensajes);
+        /* Fin Iconos svg */
+    /* FIN VARIABLES MENSAJES 
+
+    -------------------------------------------------
+
+    VARIABLES DE PERFIL */
+        /* #perfil */
+            --border-tamanho-datos_perfil-perfil: 1px;
+            --border-color-datos_perfil-perfil: solid var(--negro);
+
+            --alto-datos-usuario-perfil: 80px;
+            --padding-header-perfil: 15px;
+        /* Fin #perfil 
+
+        -----------------------------------------------
+
+        #datos-usuario */
+            --alto-informacion-usuario-perfil: 80px;
+            --alto-portada-perfil: 50px;
+        /* Fin #datos-usuario
+
+        --------------------------------------------
+
+        #foto-perfil */
+            --padding-foto_perfil-perfil: 10px;
+        /* Fin #foto-perfil
+
+        -------------------------------------------------
+
+        #seguidores-seguidos-num_publicaciones */
+            --orden-grid-areas-seguidores_seguidos_publicaciones: "num_publicaciones seguidores seguidos";
+        /* Fin #seguidores-seguidos-num_publicaciones
+
+        -------------------------------------------------
+
+        #descripcion-usuario */
+            --alto-descripcion-usuario-perfil: 100px;
+        /* Fin #descripcion-usuario
+
+        --------------------------------------------------
+
+        #subapartado-contenidos */
+            --alto-subapartado-contenidos-perfil: 50px;
+        /* Fin #subapartado-contenidos
+
+        .contenido */
+            --alto-contenido-perfil: 200px;
+            --ancho-contenido-perfil: var(--alto-contenido-perfil);
+
+            --borde-tamanho-contenido-perfil: 1px;
+            --borde-color-contenido-perfil: solid var(--negro);
+            --borde-radius-contenido-perfil: 10px;
+
+            --margin-contenido-perfil: 2px;
+        /* Fin .contenido 
+
+        ----------------------------------------------------
+
+        #botones-usuario button */
+            --color-botones-perfil: var(--azul-claro);
+            --color-texto-botones-perfil: var(--naranja-colorante);
+        /* Fin #botones-usuario button */
+    /* FIN VARIABLES DE PERFIL 
+
+    ------------------------------------------------
+
+    VARIABLES EXPLORAR */
+        /* header */
+            --borde-tamanho-header-explorar: 1px;
+            --borde-color-header-explorar: solid var(--negro);
+
+            --padding-header-explorar: 10px;
+
+            --alto-header-explorar: 27px;
+        /* Fin header 
+
+        -------------------
+
+        header input */
+            --borde-tamanho-buscador-explorar: 1px;
+            --borde-color-buscador-explorar: solid var(--negro);
+            --borde-radius-buscador-explorar: 10px;
+
+            --padding-buscador-explorar: 5px;
+        /* Fin header input */
+    /* FIN VARIABLES EXPLORAR
+
+    --------------------------------------------------
+
+    VARIABLES PUBLICAR */
+        --ancho-fondo-publicar: 80%;
+
+        --padding-header-publicar: 10px;
+        --alto-header-publicar: 20px;
+
+        --border-tamanho-header-publicar: 1px;
+
+        --margin-img_perfil-header-publicar:10px;
+
+        --alto-seleccion: 50px;
+        --ancho-seleccion: 50px;
+    /* FIN VARIABLES PUBLICAR
+
+    --------------------------------------------------
+
+    VARIABLES PUBLICACION */
+        --padding-interior-ventana-publicacion: 10px;
+        --alto-header-interior-ventana-publicacion: 50px;
+
+        --border-tamanho-header-interior-ventana-publicacion: 1px;
+        --border-color-interior-ventana-publicacion: solid var(--negro);
+
+        --alto-datos-usuario-comentario-publicacion: 35px;
+
+        --ancho-separador-publicacion: 1px;
+    /* FIN VARIABLES PUBLICACION */
+}
+
+.activo{
+    background-color: rgba(var(--gris-hover));
+}
+
+.rojo .relleno, .amarillo .relleno{
+    display: block;
+}
+
+.rojo .no_relleno, .amarillo .sin_relleno{
+    display: none;
+}
+
+.rojo{
+    fill: var(--rojo);
+}
+
+.verde{
+    fill: var(--verde);
+}
+
+.amarillo{
+    fill: #8f8f0a;
+}
+
+.azul{
+    fill: var(--azul);
+}
+
+/* Formato Cuadrados las públicaciones */
+.cuadrados{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cuadrados .contenido{
+    /*--pixeles-cuadrados: var(--ancho-contenido-perfil);*/
+    width: var(--pixeles-cuadrados);
+    height: var(--pixeles-cuadrados);
+}
+
+.cuadrados .contenido-hover{
+    width: var(--pixeles-cuadrados);
+    height: var(--pixeles-cuadrados);
+}
+
+/* Fin Formato Cuadrados Publicaciones */
+
+/* Formato lista publicaciones */
+.lista{
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.lista .contenido{
+    width: calc(100% - var(--borde-tamanho-contenido-perfil)*2 - var(--margin-contenido-perfil)*2);
+}
+
+
+.lista .contenido-hover{
+    width: var(--ancho_contenido_hover);
+}
+
+/* Fin formato lista publicaciones */
+
+.contenido{
+    transition: 300ms;
+    display: inline-flex; /*inline = para que haya más de un contenido en la misma línea. Flex = para poder colocar el texto centrado verticalmente */
+    align-items: center;
+    height: var(--alto-contenido-perfil);
+
+    overflow: hidden;
+
+    margin: var(--margin-contenido-perfil);
+
+    text-decoration: none;
+    color: var(--negro);
+}
+
+.contenido img, .contenido video{
+    max-width: 100%;
+    width: 100%;
+}
+
+.contenido .content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido p{
+    text-align: center;
+}
+
+.contenido-hover{
+    display: none;
+    height: var(--alto-contenido-perfil);
+    position: absolute;
+    color: var(--blanco);
+    fill: var(--blanco);
+    z-index: 0;
+}
+
+.contenido:hover .contenido-hover{
+    background-color: rgba(var(--gris-publicaciones-hover));
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: var(--borde-radius-contenido-perfil);
+}
+
+.resultado{
+    text-decoration: none;
+    height: 100px;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 100px auto;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px;
+}
+
+.resultado:not(:last-child){
+    border-bottom: 1px dashed #fff;
+}
+
+.resultado > img{
+    width: 100%;
+    border-radius: 100%;
+    height: 100px;
+}
+
+#insertarUsuarios{
+    background-color: #000;
+    max-height: calc(100% - 47px);
+    overflow: auto;
+}
+
+#mostrar_mensajes{
+    position: absolute;
+    top: 0;
+}
+
+.apartado-opciones{
+    margin: 10px 0 25px 0;
+    height: 54px;
+    position: relative;
+    border-radius: 10px;
+    width: calc(100% - 2px);
+    cursor: pointer;
+
+   box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.1);
+}
+
+.texto-opciones{
+    position: absolute;
+    width: 100%;
+    height: 18px;
+    text-align: center;
+    top: calc(50% - (18px / 2));
+}
+
+#base_editar_perfil{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: 10px;
+    width: 60%;
+    height: 50%;
+
+    left: calc(50% - (60% / 2));
+    top: calc(50% - (50% / 2));
+
+    border: 1px solid var(--negro);
+    border-radius: 10px;
+    z-index: 100;
+
+    background-color: #fff;
+
+    overflow: auto;
+    text-align: center;
+}
+
+.subseccion-editar_perfil{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px dashed var(--negro);
+}
+
+.subseccion-editar_perfil img{
+    border: 1px solid var(--negro);
+}
+
+.editar-perfil_seccion-img-perfil img{
+    height: 60px;
+    width: 60px;
+}
+
+.img-input{
+    display: grid;
+    width: 100%;
+    position: relative;
+}
+
+.img-input.circulo-img img{
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+}
+
+.img-input.img-input.circulo-img{
+    grid-template-columns: 60px auto;
+}
+
+.editar-perfil_seccion-img-portada{
+    height: 100%;
+}
+
+.editar-perfil_seccion-img-portada .img-input{
+    height: 100%;
+    overflow: hidden;
+}
+
+.editar-perfil_seccion-img-portada .img-input img{
+    width: 100%;
+}
+
+.editar-perfil_seccion-img-portada .img-input input{
+    height: 60px;
+    bottom: 0;
+}
+
+.editar-perfil_seccion-img-portada .img-input input::before{
+    width: 100%;
+    height: 60px;
+}
+
+.img-input input[type="file"]{
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+}
+
+.editar-perfil_seccion-img-perfil .img-input input{
+    height: 100%;
+}
+
+.editar-perfil_seccion-img-perfil .img-input input::before{
+    max-width: calc(100% - 80px);
+    left: 60px;
+    height: calc(100% - 20px);
+    padding: 20px 0 0 20px;
+}
+
+.img-input input[type="file"]::before{
+    position: relative;
+    content: "Seleccione la imagen que desea";
+    display: block;
+    background-color: blue;
+    color: var(--blanco);
+}
+
+#base_editar_perfil input[type="text"], #base_editar_perfil textarea{
+    width: calc(100% - 2px - 20px);
+    min-height: 30px;
+    resize: vertical;
+    padding: 10px;
+    border: 1px solid var(--negro);
+}
+
+#base_editar_perfil button{
+    background-color: blue;
+    color: var(--blanco);
+    cursor: pointer;
+}
+
+#base_editar_perfil button:last-child{
+    padding: 15px;
+}
+
+.cerrar-editar-perfil{
+    position: absolute;
+    right: 0;
+    z-index: 15;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    margin: 2px;
+    top: 0;
+}
+
+#compartir_con{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: calc(50% - (70% / 2));
+    left: calc(50% - (70% / 2));
+    border: 1px solid var(--negro);
+    padding: 7px;
+    border-radius: 15px;
+    background: var(--blanco);
+    z-index: 100;
+    display: grid;
+    grid-template-rows: 80px auto;
+}
+
+.header_compartir{
+    border-bottom: 1px solid var(--negro);
+    height: 100%;
+    position: relative;
+}
+
+.header_compartir input{
+    border: 1px solid var(--negro);
+    padding: 7px;
+    width: calc(100% - 2px - 14px);
+    bottom: 0;
+    margin: 5px 0;
+    position: absolute;
+}
+
+.inyectar_grupos_compartir{
+    overflow: auto;
+    height: 100%;
+}
+
+.escoger_grupo{
+    height: 50px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.boton_cerrar_compartir{
+    position: absolute;
+    border: 1px solid var(--negro);
+    padding: 5px;
+    height: 35px;
+    width: 35px;
+    top: 0;
+    right: 0;
+    margin: 7px;
+    cursor: pointer;
+}
+
+.mostrar_imagenes_videos_fila{
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    max-height: 100%;
+}
+
+.contacto:not(.contacto:last-child){
+    border-bottom: var(--borde-tamanho-abajo-contacto) var(--borde-color-abajo-contacto);
+}
+
+.contacto, #main > header:not(#contenido-nuevo){
+    display: grid;
+    align-items: center;
+}
+
+.contacto{
+    padding: var(--padding-tamanho-arriba_abajo-contacto) var(--padding-tamanho-derecha_izquierda-contacto);
+
+    grid-template-columns: var(--ancho-imagen-perfil-contacto_lista_contactos) auto;
+
+    cursor: pointer;
+}
+
+.contacto img, .mensaje_publicacion_compartida header img{
+    width: 100%;
+}
+
+.mensaje_publicacion_compartida header img{
+    height: var(--alto-buscar-contacto_mensajes);
+}
+
+.contacto img{
+    height: var(--ancho-imagen-perfil-contacto_lista_contactos);
+}
+
+.contacto img, #main header img, .mensaje_publicacion_compartida header img{
+    border-radius: var(--borde-radius-foto-perfil);
+}
+
+#main header img{
+    height: var(--alto-headers-foto_perfil-index);
+    width: var(--alto-headers-foto_perfil-index);
+}
+
+#ajustes_publicacion{
+    position: absolute;
+    right: 7.5%;
+    max-width: 60%;
+    max-height: 60%;
+    padding: 10px;
+
+    border-radius: 10px;
+    overflow: auto;
+    background: var(--blanco);
+    z-index: 50;
+
+    width: 100%;
+    height: 100%;
+
+    box-shadow: 4px 3px 15px 9px rgba(0, 0, 0, 0.15);
+    animation: desplegar-opciones 0.5s ;
+}
+
+#ajustes_publicacion.activo{
+    animation: redesplegar-opciones 0.5s;
+}
+
+#ajustes_publicacion > div{
+    /*border: 1px solid var(--negro);*/
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+
+    box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+#previsualizacion_perfil{
+    position: absolute;
+    height: 30vh;
+    width: 80%;
+    border-radius: 25px;
+    border: 1px solid var(--negro);
+    background: #fff;
+    z-index: 100;
+}
+
+#previsualizacion_perfil > img{
+    object-fit: cover;
+    width: 100%;
+    height: 100px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+#previsualizacion_perfil .datos_perfil-previsualizacion{
+    display: grid;
+    grid-template-columns: repeat(3, calc(100%  / 3));
+    border-bottom: 1px solid #000;
+}
+
+.datos_perfil-previsualizacion > img{
+    width: 60px;
+    border-radius: 100%;
+    border: 1px solid #000;
+    position: absolute;
+    top: calc((100px / 2) - (60px / 2));
+    left: 10px;
+}
+
+.datos_perfil-previsualizacion > span{
+    overflow: hidden;
+}
+
+.cuadro-previsualizacion{
+    text-align: center;
+    display: inline;
+}
+
+.contenidos-perfil-previsualizacion{
+    display: flex;
+}
+
+.contenido-perfil-previsualizacion{
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    border: 1px solid #000;
+    margin: 2px;
+    border-radius: 10px;
+    height: 79px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-perfil-previsualizacion > img{
+    width: 30%;
+}
+
+.fondo_abrir_pop-up{
+    position: absolute;
+    z-index: 9;
+    width: calc(100% - var(--ancho-barra));
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.7);
+    left: var(--ancho-barra);
+}
+
+.texto-descripcion{
+    padding: 3px 0;
+}
+
+/* HOVER */
+.apartado-opciones:hover, .escoger_grupo:hover{
+    background-color: rgba(var(--gris-hover));
+}
+
+#ajustes_publicacion > div:hover{
+    background-color: rgba(var(--gris-hover));
+}
+/* FIN HOVER */
+
+/* ANIMACIONES */
+@keyframes rotar-replicar{
+    from{
+        transform: rotate(0);
+    }
+
+    to{
+        transform: rotate(-360deg);
+    }
+}
+@-webkit-keyframes rotar-replicar{
+    from{
+        -webkit-transform: rotate(0);
+    }
+    to{
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+
+@keyframes aumentar-like{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(var(--escala-aumentar-like));
+    }
+    100%{
+        transform: scale(var(--escala-reducir-like));
+    }
+}
+@-webkit-keyframes aumentar-like{
+    0%{
+        -webkit-transform: scale(1);
+    }
+    50%{
+        -webkit-transform: scale(var(--escala-aumentar-like));
+    }
+    100%{
+        -webkit-transform: scale(var(--escala-reducir-like));
+    }
+}
+
+
+@keyframes enviar-publicacion{
+    0%{
+        
+    }
+    50%{
+        transform: rotate(-90deg);
+    }
+    100%{
+        transform: rotate(-90deg) translate(var(--trasladar-mensaje-horizontal), var(--trasladar-mensaje-vertical));
+    }
+}
+@-webkit-keyframes enviar-publicacion{
+    from{
+        -webkit-transform: translate(0, 0);
+    }
+    to{
+        -webkit-transform: translate(var(--trasladar-mensaje-horizontal), var(--trasladar-mensaje-vertical));
+    }
+}
+
+
+@keyframes saltitos-comentario{
+    from{
+        transform: translate(0, 0);
+    }
+    to{
+        transform: translate(0, -10px);
+    }
+}
+@-webkit-keyframes saltitos-comentario{
+    from{
+        -webkit-transform: translate(0, 0);
+    }
+    to{
+        -webkit-transform: translate(0, -10px);
+    }
+}
+
+@keyframes agregar-favoritos {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(20deg);
+    }
+}
+@-webkit-keyframes agregar-favoritos{
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(20deg);
+    }
+}
+
+@keyframes desplegar-opciones{
+    from{
+        width: 0;
+        height: 0;
+    }
+    to{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes redesplegar-opciones {
+    from{
+        width: 100%;
+        height: 100%;
+    }to{
+        width: 0;
+        height: 0;
+    }
+}

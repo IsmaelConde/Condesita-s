@@ -1,0 +1,54 @@
+ <!-- SECCION CENTRAL -->
+ <div id="main">
+    <!-- ZONA CONTENIDO NUEVO -->
+    <header id="contenido-nuevo">
+        <article>
+            <svg class="fondo" xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg>
+            <p>Tú</p>
+        </article>
+        {inyectar_historias}
+        
+        <!-- PLANTILLA 
+        <article>
+            <img class="fondo" src="{ruta_url}images/foto-perfil-1.jpg" alt="Foto perfil">
+            <p>Con</p>
+        </article>
+        -->
+    </header>
+    <!-- FIN ZONA CONTENIDO NUEVO -->
+
+    <!-- ZONA PUBLICACIONES -->
+    <section id="publicaciones">
+        {inyectar_publicaciones}
+    </section>
+    <!-- FIN ZONA PUBLICACIONES -->
+</div>
+<!-- FIN ZONA CENTRAL -->
+
+<!-- SECCION ZONA DERECHA (PC SOLO) -->
+<section id="barra-derecha">
+    <div class="mi-perfil">
+        <a href="{ruta_url}perfil/{nombre_usuario_arroba}"><img src="{ruta_url}images/img_foto_perfil/{nombre_img_perfil}" alt="Foto perfil de {nombre_usuario}" title="Foto perfil de {nombre_usuario}"></a>
+        <div class="perfil_nombre">
+            <h5 class="nombre-usuario">{nombre_usuario}</h5>
+            <p class="arroba_nombre-usuario">{nombre_usuario_arroba}</p>
+        </div>
+        <div class="opciones_articulo">
+            <svg xmlns="http://www.w3.org/2000/svg" class="opciones_articulo-svg" viewBox="0 96 960 960"><path d="M479.858 896Q460 896 446 881.858q-14-14.141-14-34Q432 828 446.142 814q14.141-14 34-14Q500 800 514 814.142q14 14.141 14 34Q528 868 513.858 882q-14.141 14-34 14Zm0-272Q460 624 446 609.858q-14-14.141-14-34Q432 556 446.142 542q14.141-14 34-14Q500 528 514 542.142q14 14.141 14 34Q528 596 513.858 610q-14.141 14-34 14Zm0-272Q460 352 446 337.858q-14-14.141-14-34Q432 284 446.142 270q14.141-14 34-14Q500 256 514 270.142q14 14.141 14 34Q528 324 513.858 338q-14.141 14-34 14Z"/></svg>
+        </div>
+    </div>
+    <div id="perfiles-recomendados">
+        <h4>Perfiles recomendados:</h4>
+        <div id="lista-perfiles">
+            {inyectar_perfiles_recomendados}
+        </div>
+    </div>
+    <footer class="enlaces">
+        <a href="{ruta_url}sobre-mi">Sobre Mí</a>
+        <a href="{ruta_url}privacidad">Privacidad</a>
+        <a href="{ruta_url}mapa-web">Mapa Web</a>
+    </footer>
+</section>
+<!-- FIN ZONA DERECHA -->
+
+<!-- En este caso el footer lo va tener #barra-derecha-->

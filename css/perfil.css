@@ -1,0 +1,197 @@
+#hacer-scroll{
+    max-height: 100%;
+    overflow: auto;
+}
+
+header{
+    /*height: calc(var(--alto-informacion-usuario-perfil) + var(--alto-descripcion-usuario-perfil));*/
+    display: grid;
+    position: relative;
+    align-items: center;
+    grid-template-areas: "portada portada" "info-usuario info-usuario" "margen margen" "nombre-usuario botones-usuario" "descripcion-usuario descripcion-usuario";
+    grid-template-rows: var(--alto-portada-perfil) var(--alto-datos-usuario-perfil) 10px auto auto;
+    border-bottom: var(--border-tamanho-datos_perfil-perfil) var(--border-color-datos_perfil-perfil);
+
+    padding: var(--padding-header-perfil);
+}
+
+#portada-usuario{
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    right: 0;
+    z-index: -1;
+    height: calc(var(--alto-portada-perfil) + var(--alto-datos-usuario-perfil) + var(--padding-header-perfil));
+    transition: 1ms;
+}
+
+#datos-usuario{
+    grid-area: info-usuario;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-areas: "foto-perfil datos-usuario";
+    grid-template-columns: var(--alto-informacion-usuario-perfil) auto;
+}
+
+#foto-perfil{
+    grid-area: foto-perfil;
+    height: calc(var(--alto-datos-usuario-perfil) - 10px);
+    width: calc(var(--alto-datos-usuario-perfil) - 10px);
+    border-radius: 100%;
+    border: 1px solid #000;
+}
+
+#seguidores-seguidos-num_publicaciones{
+    grid-area: datos-usuario;
+    display: grid;
+    grid-template-areas: var(--orden-grid-areas-seguidores_seguidos_publicaciones);
+}
+
+.contenido-info-perfil{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: rgb(255 255 255 / 80%);
+    text-align: center;
+    border-radius: 7px;
+    padding: 7px;
+    margin: 5px;
+    border: 1px solid var(--negro);
+    display: inline;
+}
+
+#seguidores{
+    grid-area: seguidores;
+}
+
+#seguidos{
+    grid-area: seguidos;
+}
+
+#num_publicaciones{
+    grid-area: num_publicaciones;
+}
+
+#seguidores, #seguidos, #num_publicaciones{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#nombre-usuario{
+    grid-area: nombre-usuario;
+    overflow: hidden;
+}
+
+#botones-usuario{
+    grid-area: botones-usuario;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    text-align: center;
+}
+
+#botones-usuario a{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--color-botones-perfil);
+    color: #fff;
+    text-decoration: none;
+
+    transition: all ease 0.3s;
+}
+
+#botones-usuario a:last-child{
+    margin: 0 0 0 10px;
+}
+
+#descripcion-usuario{
+    grid-area: descripcion-usuario;
+    margin-top: 10px;
+}
+
+#subapartado-contenidos{
+    border-bottom: var(--border-tamanho-datos_perfil-perfil) var(--border-color-datos_perfil-perfil);
+
+    display: grid;
+    align-items: center;
+    height: var(--alto-subapartado-contenidos-perfil);
+    grid-template-columns: auto var(--alto-subapartado-contenidos-perfil);
+}
+
+#subapartados{
+    height: var(--alto-subapartado-contenidos-perfil);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-right: 1px solid var(--negro);
+}
+
+.ocultar{
+    display: none;
+}
+
+.subapartado{
+    padding: 10px;
+    height: calc(100% - 10px*2);
+    
+}
+
+.subapartado svg{
+    height: 100%;
+    cursor: pointer;
+}
+
+#modo-visualizacion{
+    height: var(--alto-subapartado-contenidos-perfil);
+    cursor: pointer;
+}
+
+.modo_visualizacion-svg{
+    height: var(--alto-subapartado-contenidos-perfil);
+}
+
+.contenido{
+    border: var(--borde-tamanho-contenido-perfil) var(--borde-color-contenido-perfil);
+    border-radius: var(--borde-radius-contenido-perfil);
+    position: relative;
+}
+
+#main{
+    display: flex;
+
+    flex-wrap: wrap;
+
+    overflow: hidden;
+
+    position: relative;
+
+    max-height: calc(100% - (var(--alto-informacion-usuario-perfil) + var(--alto-descripcion-usuario-perfil) + var(--border-tamanho-datos_perfil-perfil)));
+}
+
+.like-svg, .comentar-svg, .publicacion-svg{
+    height: 40px;
+    width: 40px;
+}
+
+/* INTERACIONES USUARIO (:hover)*/
+
+#botones-usuario a:hover{
+    background-color: var(--azul);
+}
+
+.subapartado svg:hover{
+    fill: var(--relleno);
+}
+
+
+
+@media all and (max-width: 400px){
+    #num_publicaciones{
+        display: none;
+    }
+}

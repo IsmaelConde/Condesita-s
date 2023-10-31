@@ -1,0 +1,354 @@
+#main-mensajes{
+    overflow: hidden;
+}
+
+#main{
+    grid-area: main;
+    padding: var(--padding-top_bottom-main_mensajes) var(--padding-lados-main_mensajes);
+
+    display: grid;
+    grid-template-rows: var(--alto-buscar-contacto_mensajes) auto;
+    overflow: hidden;
+
+    width: 100%;
+}
+
+header{
+    border-bottom: var(--borde-tamanho-header_mensajes) var(--borde-color-header_mensajes);
+    padding: var(--padding-cabecera-mensaje);
+}
+
+#main > header, .cabecera_publicacion_compartida{
+    z-index: 100;
+
+    grid-template-columns: var(--alto-buscar-contacto_mensajes) auto;
+}
+
+#main input{
+    border: var(--borde-buscador-mensajes) var(--color-buscador-mensajes);
+    border-radius: var(--borde-radius-buscador);
+
+    width: calc(100% - var(--padding-derecha_izquierda-buscador_mensajes)*2);
+
+    padding: var(--padding-arriba_abajo-buscador_mensajes) var(--padding-derecha_izquierda-buscador_mensajes);
+}
+
+#buscar-contacto{
+    padding: 0 var(--padding-derecha_izquierda-main_mensajes);
+}
+
+label{
+    overflow: hidden;
+}
+
+#lista-contactos-buscar{
+    display: none;
+    flex-direction: column;
+    overflow: auto;
+    padding: var(--padding-arriba_abajo-main_mensajes) var(--padding-derecha_izquierda-main_mensajes);
+}
+
+#lista-contactos{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    padding: var(--padding-arriba_abajo-main_mensajes) var(--padding-derecha_izquierda-main_mensajes);
+
+    position: relative;
+}
+
+#portada-defecto{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+#portada-defecto svg{
+    margin-bottom: 20px;
+}
+
+#mostrar-mensajes{
+    width: 100%;
+    overflow: hidden;
+}
+
+#chat{
+    display: none;
+    width: 100%;
+    height: 100%;
+    /*display: grid;*/
+    grid-template-areas: "cabecera"
+                        "contenido-mensajes"
+                        "zona-escribir";
+    grid-template-rows: calc(var(--alto-cabecera-mensajes) + var(--padding-cabecera-mensaje)*2 + var(--border-tamanho-cabecera-mensaje)) auto calc(var(--height-zona-escribir-mensaje) + var(--padding-zona-escribir-mensaje)*2 + var(--border-tamanho-zona-escribir-mensaje));
+
+    overflow: hidden;
+}
+
+#header{
+    grid-area: cabecera;
+    display: grid;
+    align-items: center;
+
+    padding: var(--padding-cabecera-mensaje);
+
+    border-bottom: var(--border-tamanho-cabecera-mensaje) var(--border-color-cabecera-mensaje);
+}
+
+@media all and (max-width: 670px){ /* Lista contactos y zona mensaje en una única zona */
+    #main-mensajes{
+        display: flex;
+        height: 100%;
+    }
+
+    #separador{
+        display: none;
+    }
+
+    #mostrar-mensajes{
+        display: none;
+    }
+
+    #header{
+        grid-template-areas: "icono-atras imagen-cabecera datos-contacto";
+        grid-template-columns: repeat(2, var(--alto-cabecera-mensajes)) auto;
+    }
+
+    #icono_atras-svg{
+        grid-area: icono-atras;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+}
+
+@media all and (min-width: 671px){ /* Lista contactos y zona mensaje en paralelo */
+    #main-mensajes{
+        display: grid;
+        grid-template-areas: "main separador zona-chat";
+        grid-template-columns: minmax(var(--minimo-ancho-main_mensajes), calc(30% - var(--izquierda_separador))) var(--ancho-separador) auto;
+        height: 100%;
+    }
+
+    #separador{
+        grid-area: separador;
+        border-left: var(--borde-tamanho-separador) var(--border-color-separador);
+        width: var(--ancho-separador);
+    
+        cursor:col-resize;
+    
+        background: var(--color-fondo-separador-mensajes);
+    }
+
+    #mostrar-mensajes{
+        grid-area: zona-chat;
+        display: flex; /* USO FLEX PARA QUE EL HIJO ESTÉ CENTRADO */
+    }
+
+    #header{
+        grid-template-areas: "imagen-cabecera datos-contacto";
+        grid-template-columns: var(--alto-cabecera-mensajes) auto;
+    }
+
+    #icono_atras-svg{
+        display: none;
+    }
+}
+
+#header img{
+    grid-area: imagen-cabecera;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+#info-contacto-mensaje{
+    grid-area: datos-contacto;
+}
+
+#zona-escribir{
+    grid-area: zona-escribir;
+    height: var(--height-zona-escribir-mensaje);
+    display: grid;
+    align-items: center;
+    grid-template-areas: "emoticonos archivos escribir-mensaje voz";
+    grid-template-columns: repeat(2, var(--ancho-imagenes-svg-mensajes)) auto var(--ancho-imagenes-svg-mensajes);
+    padding: var(--padding-zona-escribir-mensaje);
+    border-top: var(--border-tamanho-zona-escribir-mensaje) var(--border-color-zona-escribir-mensaje);
+}
+
+#emoticono-svg{
+    grid-area: emoticonos;
+    height: var(--alto-imagenes-svg-mensajes);
+    width: var(--ancho-imagenes-svg-mensajes);
+    cursor: pointer;
+}
+
+#archivos-svg{
+    grid-area: archivos;
+    height: var(--alto-imagenes-svg-mensajes);
+    width: var(--ancho-imagenes-svg-mensajes);
+    cursor: pointer;
+}
+
+#voz-svg{
+    grid-area: voz;
+    height: var(--alto-imagenes-svg-mensajes);
+    width: var(--ancho-imagenes-svg-mensajes);
+    cursor: pointer;
+}
+
+#enviar-mensaje{
+    grid-area: escribir-mensaje;
+    height: var(--height-escribir-mensaje);
+    display: flex;
+}
+
+#enviar-mensaje input{
+    border: var(--borde-tamanho-escribir-mensaje) var(--borde-color-escribir-mensaje);
+    border-radius: var(--border-radius-escribir-mensaje);
+    padding: var(--padding-escribir-mensaje);
+    width: 100%;
+}
+
+#contenido-chat{
+    padding: var(--padding-contenido_chat-mensaje);
+    overflow: auto;
+}
+
+#contenidos{
+    bottom: 0;
+}
+
+.mensaje{
+    display: flex; /* PARA PODER COLOCAR A LA DERECHA O IZQUIERDA SIN USAR ELEMNTOS FLOTANTES */
+    position: relative;
+}
+
+.mensaje.mio > div{
+    background: var(--color-fondo_mensaje-propio_usuario-mensaje);
+    color: var(--color-mensaje-propio_usuario-mensajes);
+}
+
+.mensaje:not(.mio) > div{
+    background: var(--color-fondo_mensaje-otro_usuario-mensajes);
+    color: var(--color-mensaje-otro_usuario-mensajes);
+}
+
+.mensaje > div{
+    padding: var(--padding-mensaje);
+
+    border: var(--borde-tamanho-mensaje) var(--borde-color-mensaje);
+    border-radius: var(--border-radius-mensaje);
+
+    display: inline-block;
+
+    max-width: var(--maximo-ancho-mensaje);
+
+    margin: 10px 0;
+}
+
+.hora{
+    float: right;
+}
+
+.mensaje.mio{
+    justify-content: flex-end;
+}
+
+footer{
+    border-top: var(--borde-tamanho-footer_mensajes) var(--borde-color-footer_mensajes);
+}
+
+.imagen_publicacion, .video_publicacion{
+    width: 100%;
+}
+
+.texto_publicacion{
+    color: var(--blanco);
+    padding: 10px;
+}
+
+.publicacion_compartida{
+    text-decoration: none;
+    text-align: center;
+}
+
+.importante{
+    color: var(--rojo);
+}
+
+.cabecera_publicacion_compartida{
+    display: grid;
+    align-items: center;
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+.info_perfil_publicacion_compartida{
+    padding: 0 10px;
+}
+
+.mensaje_publicacion_compartida{
+    border: 1px solid var(--negro);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#ajustes_contacto{
+    position: absolute;
+    width: calc(100% - 20px);
+    background: var(--blanco);
+    height: calc(100% - 20px);
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+
+.opcion-grupo{
+    margin: 10px 5px;
+    border: 1px solid var(--negro);
+    border-radius: 10px;
+}
+
+.opcion-grupo p{
+    padding: 10px;
+}
+
+.texto_cabecera_ajustes_contacto{
+    border-bottom: 1px solid var(--negro);
+}
+
+#ajustes_mensaje{
+    position: absolute;
+    max-width: 50%;
+    z-index: 10;
+}
+
+.opcion_mensaje{
+    border: 1px solid var(--negro);
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.opcion_mensaje > p{
+    padding: 10px;
+}
+
+.cerrar_opciones{
+    position: relative;
+    padding: 5px;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    left: calc(100% - 25px);
+    margin: 0 0 10px 0;
+    cursor: pointer;
+}
+
+/* INTERACCIONES USUARIO (:hover)*/
+#separador:hover{
+    background: var(--color-fondo-separador_hover);
+}

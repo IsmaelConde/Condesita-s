@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{titulo}</title>
+    <link rel="stylesheet" href="{ruta_url_css}general.css">
+    <link rel="stylesheet" href="{ruta_url_css}barra_lateral.css">
+    <link rel="stylesheet" href="{url_css}">
+    <script src="{url_js}"></script>
+    <script src="{ruta_url_js}libreria.js"></script>
+    <script>
+        {javascript}
+        /**
+         * Función que va ejecutar las distintas llamadas de AJAX
+         * @param {string} nombre_documento Recibe como parametro el nombre del archivo que va procesar toda la información
+         * @param {string|[]} enviar_datos Datos que va enviar
+         */
+        function llamadaAjax(nombre_documento, enviar_datos){
+            let xmlHttp = new XMLHttpRequest();
+
+            xmlHttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    if(es_json(this.responseText)){
+                        // Es json
+                        let dato = JSON.parse(this.responseText);
+                        if(dato["estado"] == 202){
+                            if(dato["js"]){ // Si hay una función que ejecutar
+                                if(dato["parametros_js"]){
+                                    eval(dato["js"])(dato["parametros_js"]);
+                                }else{
+                                    eval(dato["js"]); // Ejecutamos la función
+                                }
+                            }
+                            if(dato["javascript"]){
+                                eval(dato["javascript"]);
+                            }
+                        }else if(dato["estado"] == 100){ // Si no hay cosas buenas, mostramos la información
+                            // No queremos que haga nada
+                        }else{
+                            mostrar_mensajes_pantalla(dato["contenido"]);
+                            mostrar_por_consola(this.responseText);
+                        }
+                    }
+                }
+            };
+
+            xmlHttp.open("POST", "{ruta_url}backend/" + nombre_documento); // Método y lugar del archivo
+            xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xmlHttp.send("datos=" + enviar_datos); // Los datos que le pasamos
+        }
+
+        /**
+         * Función exactamente igual que la anterior solo que en este no se envía parametros, si no que se envía el cuerpo
+         * @param {string} nombre_documento Recibe como parametro el nombre del archivo que va procesar toda la información
+         * @param {formData} enviar_datos Datos que va enviar
+         */
+        function llamadaAjax_formData(nombre_documento,enviar_datos){
+            let xmlHttp = new XMLHttpRequest();
+
+            xmlHttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    mostrar_por_consola(this.responseText);
+                    if(es_json(this.responseText)){
+                        // Es json
+                        let dato = JSON.parse(this.responseText);
+                        if(dato["estado"] == 202 || dato["estado"] == 200){
+                            if(dato["js"]){ // Si hay una función que ejecutar
+                                if(dato["parametros_js"]){
+                                    eval(dato["js"])(dato["parametros_js"]);
+                                }else{
+                                    eval(dato["js"]); // Ejecutamos la función
+                                }
+                            }
+                            if(dato["javascript"]){
+                                eval(dato["javascript"]);
+                            }
+                        }else if(dato["estado"] == 120){
+                            if(dato["js"]){
+                                eval(dato["js"]);
+                            }
+                            if(dato["contenido"]){
+                                mostrar_mensajes_pantalla(dato["contenido"]);
+                            }
+                        }else{ // Si no hay cosas buenas, mostramos la información
+                            mostrar_mensajes_pantalla(dato["contenido"]);
+                        }
+                    }
+                }
+            };
+
+            xmlHttp.open("POST", "{ruta_url}backend/" + nombre_documento); // Método y lugar del archivo
+            //xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xmlHttp.send(enviar_datos); // Los datos que le pasamos
+        }
+    </script>
+</head>
+{insertar_body}

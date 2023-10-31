@@ -1,0 +1,20 @@
+
+<!-- El header solo móvil, se usará para buscar a usuarios -->
+<header class="movil">
+    <label for="input-buscar_usuarios">Buscar usuarios:</label>
+    <input type="text" id="input-buscar_usuarios">
+</header>
+<!-- Fin solo móvil -->
+<!-- Vamos a agregar un grid en main y hacer una llamada sql para obtene cosas -->
+<div id="zona-contenidos">
+    <!--El tamaño de los contenidos van a ser configurados en JS, ya
+    podemos saber el ancho de la imagen, por ejemplo, le podemos
+    dar scale para que se ajuste al tamaño del cuadrado o generar un
+    cuadrado en formato 16:9 para que la foto ocupe el 100%, eso es
+    todo programación
+    -->
+    <div id="publicaciones" class="cuadrados">
+        {inyectar_contenidos}
+    </div>
+    
+</div>        
